@@ -92,7 +92,7 @@ local function OnQuestComplete(event, player, quest)
     end
 
     local questId = quest:GetId()
-    local isDaily = quest:IsDailyQuest()
+    local isDaily = quest and quest.IsDailyQuest and quest:IsDailyQuest() or false
 
     BattlePass.Debug(string.format("Quest complete: %d (daily: %s)",
         questId, tostring(isDaily)))
